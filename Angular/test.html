@@ -1,0 +1,84 @@
+<!Doctype html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <script src="https://code.angularjs.org/1.8.1/angular.min.js"></script>
+    </head>
+    
+    <body>
+<!--
+        <div ng-app="">
+            <p>Name: <input type="text" ng-model="name"></p>
+            <p>{{ name }}</p>
+        </div>
+-->
+        
+        
+<!--
+        <div ng-app="myapp" ng-controller="myctrl">
+            <p>名: <input type="text" ng-model="firstname"></p>
+            <br>
+            <p>姓: <input type="text" ng-model="lastname"></p>
+            <br>
+            <p>姓名: {{ firstname + lastname }}</p>
+        </div>
+        
+        
+        <script>
+            var app= angular.module('myapp',[]);
+            app.controller('myctrl',function($scope){
+                $scope.firstname="Wendy";
+                $scope.lastname="Chi";
+            });
+        </script>
+-->
+        
+
+<!--
+        <div ng-app="" ng-init="names=['Wendy','Amy','John']">
+            <ul>
+                <li ng-repeat="x in names">
+                    {{ x }}
+                </li>
+            </ul>
+        </div>
+-->
+        
+<!--
+驗證用戶輸入
+        
+    <form ng-app="" name="myform">
+        Email:
+        <input type="email" name="myAddress" ng-model="text">
+        <span ng-show="myform.myAddress.$error.email">不是一個合法的郵箱地址</span>
+    </form>
+-->
+        
+<!--
+        <div ng-app="myapp" ng-controller="personCtrl">
+            名: <input type="text" ng-model="firstName"><br>
+            姓: <input type="text" ng-model="lastName"><br>
+            <br>
+            姓名: {{ fullName() }}
+        </div>
+        
+        <script>
+            var app = angular.module('myapp',[]);
+            app.controller('personCtrl',function($scope){
+                $scope.firstName="John";
+                $scope.lastName="Doe";
+                $scope.fullName=function(){
+                    return $scope.firstName + " " + $scope.lastName; 
+                }
+            });
+        </script>
+-->
+    
+    
+    
+    
+    
+    
+    
+    </body>
+</html>                                                                                                                                                                                                                                                                                                                                                                                                                                                     

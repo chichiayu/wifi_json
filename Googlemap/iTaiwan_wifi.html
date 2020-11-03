@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <style type="text/css" media="screen">
+            html {
+                height: 100%;
+                width: 100%;
+            }
+
+            #map {
+                position: absolute;
+                left: 0;
+                height: 80%;
+                width: 100vw;
+            }
+
+            #body {
+                height: 100%;
+                width: 100vw;
+                position: relative;
+                top: 0;
+                left: 0;
+            }
+            </style>
+        <meta charset="utf-8">
+        <meta name="viewport" content="initial-scale=1.0">
+        <script src="https://code.jquery.com/jquery-3.1.0.js"></script>
+    </head>
+
+    <body>
+        <h3>iTaiwan wifi</h3>
+
+        <div id="map"></div>
+
+
+        <script>
+            var url = './test.json';
+            function initMap() {
+                //設定中心點座標
+    
+            var map = new google.maps.Map(document.getElementById('map'), {
+            zoom: 15,
+            center: {lat: 25.046891, lng: 121.516602}
+             });
+        
+            callAjax(url);
+
+            function callAjax(url) {
+                var xhr = new XMLHttpRequest();
+                xhr.open('get', url, true);
+                xhr.send(null);
+                xhr.onload = function() {
+                    var record = JSON.parse(xhr.responseText);
+                    wifiData = record.result.records;//要撈的資料如下圖所示
+                    len = wifiData.length;
+                    //JSON.parse是string轉object,方便撈取資料 
+                
+                    for(i=0;i<wifiData.length;i++){
+                        var str ={};
+                        var place = {};
+                        place.lat = parseFloat(wifiData[i]['lat']);
+                        place.lng = parseFloat(wifiData[i]['lng']);
+                        
+                        str.map = map;
+                        str.title= wifiData[i]['地點']
+                        str.position = place;
+                        console.log(str);
+                        new google.maps.Marker(str);
+                    }
+            };
+            };
+        }
+        </script>
+
+
+        <script async defer
+            src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBWNFQh_nYeJFJMezxPd16FpCiDMgchokY&callback=initMap">
+        </script>
+    </body>
+</html>

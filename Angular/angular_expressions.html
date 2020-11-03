@@ -1,0 +1,43 @@
+<!Doctype html>
+<html ng-app="myApp">
+    <head>
+        <meta charset="utf-8">
+        <script src="https://code.angularjs.org/1.8.1/angular.min.js"></script>
+        <title>AngularJS Expressions</title>
+    </head>
+    
+    <body>
+        <div ng-controller="myController">
+            <h1>Expressions</h1>
+            {{ 'Bilbo' + 'Baggins' }} <br>
+            {{ first }} {{ last }} <br>
+            {{ combine ('Bilbo','Baggins')}} <br>
+            {{ combine (first,last)}} <br>
+            
+            <p ng-click="setName(newFirst,newLast)">
+                Click to Change to {{newFirst}} {{newLast}}
+            </p>
+            
+            <p ng-click="setName('Bilbo','Baggins')">
+                Click to Change to Bilbo Baggins
+            </p>
+        </div>
+        
+        
+        <script>
+            angular.module('myApp',[]).controller('myController',function($scope){
+                $scope.first ='Thorin';
+                $scope.last='Oakenshield';
+                $scope.newFirst='Gandalf';
+                $scope.newLast='Geyhame';
+                $scope.combine=function(fname,lname){
+                    return fname+' '+lname;
+                };
+                $scope.setName=function(fname,lname){
+                    $scope.first=fname;
+                    $scope.last=lname;
+                };
+            });
+        </script>
+    </body>
+</html>
